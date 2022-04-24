@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+no-upload/
 
 # IntelliJ related
 *.iml
