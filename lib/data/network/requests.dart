@@ -4,3 +4,9 @@ class LoginRequest {
 
   LoginRequest(this.email, this.password);
 }
+
+class ResetPasswordRequest {
+  String email;
+
+  ResetPasswordRequest(this.email);
+}

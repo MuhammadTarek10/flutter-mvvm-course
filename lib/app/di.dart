@@ -10,6 +10,8 @@ import 'package:stores/data/network/network_info.dart';
 import 'package:stores/data/repository/repository_implementer.dart';
 import 'package:stores/domain/repository/repository.dart';
 import 'package:stores/domain/usecase/login_usecase.dart';
+import 'package:stores/domain/usecase/register_usecase.dart';
+import 'package:stores/presentation/forget_password/viewmodel/forget_password_viewmodel.dart';
 import 'package:stores/presentation/login/viewmodel/login_viewmodel.dart';
 import 'package:stores/presentation/onboarding/viewmodel/onboarding_viewmodel.dart';
 
@@ -54,5 +56,14 @@ initLoginModule() {
 initOnBoardingModule() {
   if (!GetIt.I.isRegistered<OnBoardingViewModel>()) {
     instance.registerFactory<OnBoardingViewModel>(() => OnBoardingViewModel());
+  }
+}
+
+initForgetPasswordModule() {
+  if (!GetIt.I.isRegistered<ForgetPasswordUseCase>()) {
+    instance.registerFactory<ForgetPasswordUseCase>(
+        () => ForgetPasswordUseCase(instance()));
+    instance.registerFactory<ForgetPasswordViewModel>(
+        () => ForgetPasswordViewModel(instance()));
   }
 }

@@ -54,6 +54,8 @@ class _LoginViewState extends State<LoginView> {
   @override
   void dispose() {
     _viewModel.dispose();
+    _usernameController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
