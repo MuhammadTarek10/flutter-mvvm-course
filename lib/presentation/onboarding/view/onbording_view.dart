@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:stores/domain/models.dart';
+import 'package:stores/domain/models/models.dart';
 import 'package:stores/presentation/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:stores/presentation/resources/assets_manager.dart';
 import 'package:stores/presentation/resources/color_manager.dart';
@@ -42,8 +42,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               backgroundColor: ColorManager.white,
               elevation: AppSize.s0,
               systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: ColorManager.white,
-                  statusBarBrightness: Brightness.dark),
+                statusBarColor: ColorManager.white,
+                statusBarBrightness: Brightness.dark,
+              ),
             ),
             body: PageView.builder(
               controller: _pageController,
@@ -62,7 +63,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     child: TextButton(
                       onPressed: () {
                         Navigator.pushReplacementNamed(
-                            context, Routes.loginRoute);
+                          context,
+                          Routes.loginRoute,
+                        );
                       },
                       child: Text(
                         AppStrings.skip,
@@ -105,12 +108,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 );
               },
             ),
-          )
-
-// circle indicator
-
-          // right arrow
-          ,
+          ),
           Row(
             children: [
               for (int i = 0; i < slider.numberOfSlides; i++)
