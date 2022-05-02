@@ -30,4 +30,5 @@ class AppStrings {
   static const String email = "Email";
   static const String emailError = "Please enter a valid email!";
   static const String resetPassword = "Reset Password";
+  static const String resetPasswordDefault = "Done";
 }

@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:stores/app/functions.dart';
 import 'package:stores/domain/usecase/register_usecase.dart';
 import 'package:stores/presentation/base/base_view_model.dart';
 import 'package:stores/presentation/common/freezed_data_classes.dart';
 import 'package:stores/presentation/common/state_renderer/state_rederer_implementer.dart';
 import 'package:stores/presentation/common/state_renderer/state_renderer.dart';
+import 'package:stores/presentation/resources/strings_manager.dart';
 
 class ForgetPasswordViewModel extends BaseViewModel
     with ForgetPasswordViewModelInputs, ForgetPasswordViewModelOutputs {
@@ -39,7 +41,8 @@ class ForgetPasswordViewModel extends BaseViewModel
         StateRendererType.popupErrorState,
         failure.message,
       )),
-      (data) => inputState.add(ContentState()),
+      (data) => inputState
+          .add(SuccessState(data.support ?? AppStrings.resetPasswordDefault)),
     );
   }
 
@@ -59,7 +62,7 @@ class ForgetPasswordViewModel extends BaseViewModel
   }
 
   bool _isEmailValid(String email) {
-    return email.isNotEmpty;
+    return isEmailValid(email);
   }
 }
 

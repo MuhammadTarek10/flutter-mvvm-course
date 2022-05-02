@@ -11,6 +11,7 @@ enum StateRendererType {
   // POPUP STATES (DIALOG)
   popupLoadingState,
   popupErrorState,
+  popupSuccessState,
 
   // FULL SCREEN STATED (FULL SCREEN)
   fullScreenLoadingState,
@@ -67,6 +68,12 @@ class StateRenderer extends StatelessWidget {
         return _getItemsColumn([
           _getAnimatedImage(JsonAssetManager.empty),
           _getMessage(message),
+        ]);
+      case StateRendererType.popupSuccessState:
+        return _getPopUpDialog(context, [
+          _getAnimatedImage(JsonAssetManager.success),
+          _getMessage(message),
+          _getRetryButton(AppStrings.ok, context)
         ]);
       case StateRendererType.contentState:
         return Container();
@@ -127,7 +134,7 @@ class StateRenderer extends StatelessWidget {
         child: Text(
           message,
           style: getRegularStyle(
-              color: ColorManager.black, fontSize: FontSize.s18),
+              color: ColorManager.black, fontSize: FontSize.s16),
         ),
       ),
     );

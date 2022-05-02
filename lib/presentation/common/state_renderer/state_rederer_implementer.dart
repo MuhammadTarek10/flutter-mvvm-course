@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:stores/app/constants.dart';
 import 'package:stores/presentation/common/state_renderer/state_renderer.dart';
@@ -66,58 +65,63 @@ class EmptyState extends FlowState {
       StateRendererType.fullScreenEmptyState;
 }
 
+class SuccessState extends FlowState {
+  String message;
+  SuccessState(this.message);
+  @override
+  String getMessage() => message;
+
+  @override
+  StateRendererType getStateRendererType() =>
+      StateRendererType.popupSuccessState;
+}
+
 extension FlowStateExtension on FlowState {
   Widget getScreenWidget(BuildContext context, Widget contentScreenWidget,
       Function retryActionFunction) {
     switch (runtimeType) {
       case LoadingState:
-        {
-          if (getStateRendererType() == StateRendererType.popupLoadingState) {
-            // show popup loading
-            showPopup(context, getStateRendererType(), getMessage());
-            // show content ui of the screen
-            return contentScreenWidget;
-          } else {
-            // full screen loading state
-            return StateRenderer(
-                message: getMessage(),
-                stateRendererType: getStateRendererType(),
-                retryActionFunction: retryActionFunction);
-          }
+        if (getStateRendererType() == StateRendererType.popupLoadingState) {
+          // show popup loading
+          showPopup(context, getStateRendererType(), getMessage());
+          // show content ui of the screen
+          return contentScreenWidget;
+        } else {
+          // full screen loading state
+          return StateRenderer(
+              message: getMessage(),
+              stateRendererType: getStateRendererType(),
+              retryActionFunction: retryActionFunction);
         }
       case ErrorState:
-        {
-          dismissDialog(context);
-          if (getStateRendererType() == StateRendererType.popupErrorState) {
-            // show popup error
-            showPopup(context, getStateRendererType(), getMessage());
-            // show content ui of the screen
-            return contentScreenWidget;
-          } else {
-            // full screen error state
-            return StateRenderer(
-                message: getMessage(),
-                stateRendererType: getStateRendererType(),
-                retryActionFunction: retryActionFunction);
-          }
+        dismissDialog(context);
+        if (getStateRendererType() == StateRendererType.popupErrorState) {
+          // show popup error
+          showPopup(context, getStateRendererType(), getMessage());
+          // show content ui of the screen
+          return contentScreenWidget;
+        } else {
+          // full screen error state
+          return StateRenderer(
+              message: getMessage(),
+              stateRendererType: getStateRendererType(),
+              retryActionFunction: retryActionFunction);
         }
       case EmptyState:
-        {
-          return StateRenderer(
-              stateRendererType: getStateRendererType(),
-              message: getMessage(),
-              retryActionFunction: () {});
-        }
+        return StateRenderer(
+            stateRendererType: getStateRendererType(),
+            message: getMessage(),
+            retryActionFunction: () {});
       case ContentState:
-        {
-          dismissDialog(context);
-          return contentScreenWidget;
-        }
+        dismissDialog(context);
+        return contentScreenWidget;
+      case SuccessState:
+        dismissDialog(context);
+        showPopup(context, getStateRendererType(), getMessage());
+        return contentScreenWidget;
       default:
-        {
-          dismissDialog(context);
-          return contentScreenWidget;
-        }
+        dismissDialog(context);
+        return contentScreenWidget;
     }
   }
 
