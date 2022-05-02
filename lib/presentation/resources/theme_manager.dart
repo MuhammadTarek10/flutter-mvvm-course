@@ -44,7 +44,7 @@ ThemeData getApplicationTheme() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         textStyle: getRegularStyle(
-          color: ColorManager.white,
+          color: ColorManager.primary,
           fontSize: FontSize.s17,
         ),
         primary: ColorManager.primary,
@@ -64,7 +64,7 @@ ThemeData getApplicationTheme() {
       ),
       headlineLarge: getSemiBoldStyle(
         color: ColorManager.darkGrey,
-        fontSize: FontSize.s14,
+        fontSize: FontSize.s16,
       ),
       headlineMedium: getRegularStyle(
         color: ColorManager.darkGrey,
@@ -72,7 +72,7 @@ ThemeData getApplicationTheme() {
       ),
       titleMedium: getMediumStyle(
         color: ColorManager.primary,
-        fontSize: FontSize.s16,
+        fontSize: FontSize.s12,
       ),
       bodyLarge: getRegularStyle(
         color: ColorManager.grey1,
@@ -95,6 +95,7 @@ ThemeData getApplicationTheme() {
       ),
       errorStyle: getRegularStyle(
         color: ColorManager.error,
+        fontSize: FontSize.s12,
       ),
 
       // enabled border style
