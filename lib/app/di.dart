@@ -11,6 +11,7 @@ import 'package:stores/data/repository/repository_implementer.dart';
 import 'package:stores/domain/repository/repository.dart';
 import 'package:stores/domain/usecase/login_usecase.dart';
 import 'package:stores/presentation/login/viewmodel/login_viewmodel.dart';
+import 'package:stores/presentation/onboarding/viewmodel/onboarding_viewmodel.dart';
 
 final instance = GetIt.instance;
 
@@ -47,5 +48,11 @@ initLoginModule() {
   if (!GetIt.I.isRegistered<LoginUseCase>()) {
     instance.registerFactory<LoginUseCase>(() => LoginUseCase(instance()));
     instance.registerFactory<LoginViewModel>(() => LoginViewModel(instance()));
+  }
+}
+
+initOnBoardingModule() {
+  if (!GetIt.I.isRegistered<OnBoardingViewModel>()) {
+    instance.registerFactory<OnBoardingViewModel>(() => OnBoardingViewModel());
   }
 }
