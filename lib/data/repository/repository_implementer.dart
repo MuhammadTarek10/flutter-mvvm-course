@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:stores/data/data_source/remote_data_source.dart';
 import 'package:stores/data/mapper/mapper.dart';
 import 'package:stores/data/network/error_handler.dart';
@@ -93,6 +95,29 @@ class RepositoryImp implements Reposotiry {
       }
     } else {
       return Left(DataSource.notFound.getFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, HomeObject>> getHome() async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _remoteDataSource.getHome();
+        if (response.status == ApiInternalStatus.success) {
+          return Right(response.toDomain());
+        } else {
+          return Left(
+            Failure(
+              ApiInternalStatus.failure,
+              response.message ?? ResponseMessage.unknown,
+            ),
+          );
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.noIntentConnection.getFailure());
     }
   }
 }

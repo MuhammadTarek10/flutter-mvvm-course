@@ -46,4 +46,18 @@ class AppStrings {
   static const String profilePicture = "Profile Picture";
   static const String photoGallery = "Photo from Gallery";
   static const String photoCamera = "Photo from Camera";
+
+  // home view
+  static const String home = "Home";
+  static const String services = "Services";
+  static const String stores = "Stores";
+
+  // settings view
+  static const String settings = "Settings";
+
+  // search view
+  static const String search = "Search";
+
+  // notifications view
+  static const String notifications = "Notifcations";
 }

@@ -316,18 +316,19 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.only(
-                    left: AppPadding.p28,
-                    right: AppPadding.p28,
-                    top: AppPadding.p8,
+                padding: const EdgeInsets.only(
+                  left: AppPadding.p28,
+                  right: AppPadding.p28,
+                  top: AppPadding.p8,
+                ),
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(
+                    AppStrings.alreadyMember,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  child: TextButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: Text(
-                      AppStrings.alreadyMember,
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  )),
+                ),
+              ),
             ],
           ),
         ),
@@ -342,7 +343,9 @@ class _RegisterViewState extends State<RegisterView> {
       appBar: AppBar(
         elevation: AppSize.s0,
         backgroundColor: ColorManager.white,
-        iconTheme: IconThemeData(color: ColorManager.primary),
+        iconTheme: IconThemeData(
+          color: ColorManager.primary,
+        ),
       ),
       body: StreamBuilder<FlowState>(
         stream: _viewModel.outputState,

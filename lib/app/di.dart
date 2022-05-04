@@ -9,12 +9,15 @@ import 'package:stores/data/network/app_api.dart';
 import 'package:stores/data/network/dio_factory.dart';
 import 'package:stores/data/network/network_info.dart';
 import 'package:stores/data/repository/repository_implementer.dart';
+import 'package:stores/domain/models/models.dart';
 import 'package:stores/domain/repository/repository.dart';
+import 'package:stores/domain/usecase/home_usecase.dart';
 import 'package:stores/domain/usecase/login_usecase.dart';
 import 'package:stores/domain/usecase/forget_password_usecase.dart';
 import 'package:stores/domain/usecase/register_usecase.dart';
 import 'package:stores/presentation/forget_password/viewmodel/forget_password_viewmodel.dart';
 import 'package:stores/presentation/login/viewmodel/login_viewmodel.dart';
+import 'package:stores/presentation/main/pages/home/viewmodel/home_viewmodel.dart';
 import 'package:stores/presentation/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:stores/presentation/register/viewmodel/register_viewmodel.dart';
 
@@ -80,5 +83,12 @@ initRegisterModule() {
   }
   if (!GetIt.I.isRegistered<ImagePicker>()) {
     instance.registerFactory<ImagePicker>(() => ImagePicker());
+  }
+}
+
+initHomeModule() {
+  if (!GetIt.I.isRegistered<HomeUseCase>()) {
+    instance.registerFactory<HomeUseCase>(() => HomeUseCase(instance()));
+    instance.registerFactory<HomeViewModel>(() => HomeViewModel(instance()));
   }
 }

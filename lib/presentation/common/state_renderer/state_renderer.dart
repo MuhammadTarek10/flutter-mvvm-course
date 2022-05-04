@@ -56,7 +56,7 @@ class StateRenderer extends StatelessWidget {
       case StateRendererType.fullScreenLoadingState:
         return _getItemsColumn([
           _getAnimatedImage(JsonAssetManager.loading),
-          _getMessage(message),
+          _getMessage(message)
         ]);
       case StateRendererType.fullScreenErrorState:
         return _getItemsColumn([

@@ -231,7 +231,7 @@ class RegisterViewModel extends BaseViewModel
   }
 
   bool _isUsernameValid(String username) {
-    return username.isNotEmpty;
+    return username.length >= 6;
   }
 
   bool _isProfilePictureValid(File profilePicture) {

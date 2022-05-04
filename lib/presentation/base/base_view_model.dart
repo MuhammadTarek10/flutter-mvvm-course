@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:rxdart/subjects.dart';
 import 'package:stores/presentation/common/state_renderer/state_rederer_implementer.dart';
 
 abstract class BaseViewModelInputs {
@@ -16,8 +17,7 @@ abstract class BaseViewModelOutputs {
 
 abstract class BaseViewModel extends BaseViewModelInputs
     with BaseViewModelOutputs {
-  final StreamController _inputStreamController =
-      StreamController<FlowState>.broadcast();
+  final StreamController _inputStreamController = BehaviorSubject<FlowState>();
 
   @override
   void dispose() {
