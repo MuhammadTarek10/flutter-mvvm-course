@@ -8,4 +8,5 @@ abstract class Reposotiry {
   Future<Either<Failure, Authentication>> login(LoginRequest loginRequest);
   Future<Either<Failure, ForgetPasswordResponse>> resetPassword(
       ResetPasswordRequest resetPasswordRequest);
+  Future<Either<Failure, Authentication>> register(RegisterRequest registerRequest);
 }

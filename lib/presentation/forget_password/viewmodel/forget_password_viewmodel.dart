@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:stores/app/functions.dart';
-import 'package:stores/domain/usecase/register_usecase.dart';
+import 'package:stores/domain/usecase/forget_password_usecase.dart';
 import 'package:stores/presentation/base/base_view_model.dart';
 import 'package:stores/presentation/common/freezed_data_classes.dart';
 import 'package:stores/presentation/common/state_renderer/state_rederer_implementer.dart';

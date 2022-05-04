@@ -31,4 +31,19 @@ class AppStrings {
   static const String emailError = "Please enter a valid email!";
   static const String resetPassword = "Reset Password";
   static const String resetPasswordDefault = "Done";
+
+  // register view
+  static const String errorCountryMobileCode = "Please put a country code";
+  static const String errorUsername =
+      "Username should be at least 6 characters";
+  static const String errorPassword = "Please put a password";
+  static const String errorEmail = "Please put a valud email";
+  static const String errorMobileNumber = "Please put a mobile number";
+  static const String errorProfilePicture = "Please put profile picture";
+  static const String register = "Register";
+  static const String mobileNumber = "Mobile Number";
+  static const String alreadyMember = "Already a member? Login here!";
+  static const String profilePicture = "Profile Picture";
+  static const String photoGallery = "Photo from Gallery";
+  static const String photoCamera = "Photo from Camera";
 }

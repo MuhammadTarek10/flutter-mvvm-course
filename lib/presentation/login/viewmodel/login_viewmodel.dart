@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:stores/app/functions.dart';
 import 'package:stores/domain/usecase/login_usecase.dart';
 import 'package:stores/presentation/base/base_view_model.dart';
 import 'package:stores/presentation/common/freezed_data_classes.dart';
@@ -104,7 +105,7 @@ class LoginViewModel extends BaseViewModel
   }
 
   bool _isUsernameValid(String username) {
-    return username.isNotEmpty;
+    return isEmailValid(username);
   }
 
   bool _areAllInputsValid() {

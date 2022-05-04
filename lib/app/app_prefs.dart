@@ -4,6 +4,7 @@ import 'package:stores/presentation/resources/language_manager.dart';
 const String prefKeyLang = 'PREF_KEY_LANG';
 const String prefKeyOnBoardingScreenViewed = 'ON_BOARDING_VIEWED';
 const String prefKeyIsUserLoggedIn = 'IS_USER_LOGGED_IN';
+const String prefKeyIsUserRegistered = 'IS_USER_REGISTERED';
 
 class AppPrefrences {
   final SharedPreferences _sharedPreferences;
@@ -32,5 +33,13 @@ class AppPrefrences {
 
   Future<bool> isUserLoggedIn() async {
     return _sharedPreferences.getBool(prefKeyIsUserLoggedIn) ?? false;
+  }
+
+  Future<void> setUserRegistered() async {
+    _sharedPreferences.setBool(prefKeyIsUserRegistered, true);
+  }
+
+  Future<bool> isUserRegistered() async {
+    return _sharedPreferences.getBool(prefKeyIsUserRegistered) ?? false;
   }
 }
