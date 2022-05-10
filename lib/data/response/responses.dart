@@ -150,3 +150,33 @@ class HomeResponse extends BaseResponse {
 
   Map<String, dynamic> toJson() => _$HomeResponseToJson(this);
 }
+
+@JsonSerializable()
+class StoreDetailsDataResponse extends BaseResponse {
+  @JsonKey(name: 'id')
+  int? id;
+  @JsonKey(name: 'title')
+  String? title;
+  @JsonKey(name: 'image')
+  String? image;
+  @JsonKey(name: 'details')
+  String? details;
+  @JsonKey(name: 'about')
+  String? about;
+  @JsonKey(name: 'service')
+  String? service;
+
+  StoreDetailsDataResponse(
+    this.id,
+    this.title,
+    this.image,
+    this.details,
+    this.about,
+    this.service,
+  );
+
+  factory StoreDetailsDataResponse.fromJson(Map<String, dynamic> json) =>
+      _$StoreDetailsDataResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$StoreDetailsDataResponseToJson(this);
+}

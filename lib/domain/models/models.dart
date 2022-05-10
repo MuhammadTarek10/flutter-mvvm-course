@@ -4,7 +4,11 @@ class SliderObject {
   String subtitle;
   String image;
 
-  SliderObject(this.title, this.subtitle, this.image);
+  SliderObject(
+    this.title,
+    this.subtitle,
+    this.image,
+  );
 }
 
 class SliderViewObject {
@@ -12,7 +16,11 @@ class SliderViewObject {
   int numberOfSlides;
   int currentIndex;
 
-  SliderViewObject(this.sliderObject, this.numberOfSlides, this.currentIndex);
+  SliderViewObject(
+    this.sliderObject,
+    this.numberOfSlides,
+    this.currentIndex,
+  );
 }
 
 // login
@@ -22,7 +30,11 @@ class Customer {
   String name;
   int numberOfNotifications;
 
-  Customer(this.id, this.name, this.numberOfNotifications);
+  Customer(
+    this.id,
+    this.name,
+    this.numberOfNotifications,
+  );
 }
 
 class Contacts {
@@ -30,14 +42,21 @@ class Contacts {
   String email;
   String link;
 
-  Contacts(this.phone, this.email, this.link);
+  Contacts(
+    this.phone,
+    this.email,
+    this.link,
+  );
 }
 
 class Authentication {
   Customer? customer;
   Contacts? contacts;
 
-  Authentication(this.customer, this.contacts);
+  Authentication(
+    this.customer,
+    this.contacts,
+  );
 }
 
 class Service {
@@ -45,7 +64,11 @@ class Service {
   String title;
   String image;
 
-  Service(this.id, this.title, this.image);
+  Service(
+    this.id,
+    this.title,
+    this.image,
+  );
 }
 
 class Store {
@@ -53,7 +76,11 @@ class Store {
   String title;
   String image;
 
-  Store(this.id, this.title, this.image);
+  Store(
+    this.id,
+    this.title,
+    this.image,
+  );
 }
 
 class BannerAd {
@@ -62,7 +89,12 @@ class BannerAd {
   String image;
   String link;
 
-  BannerAd(this.id, this.title, this.image, this.link);
+  BannerAd(
+    this.id,
+    this.title,
+    this.image,
+    this.link,
+  );
 }
 
 class HomeData {
@@ -70,11 +102,33 @@ class HomeData {
   List<BannerAd> banners;
   List<Store> stores;
 
-  HomeData(this.services, this.banners, this.stores);
+  HomeData(
+    this.services,
+    this.banners,
+    this.stores,
+  );
 }
 
 class HomeObject {
-  HomeData? data;
+  HomeData data;
 
   HomeObject(this.data);
+}
+
+class StoreDetails {
+  int id;
+  String image;
+  String title;
+  String details;
+  String service;
+  String about;
+
+  StoreDetails(
+    this.id,
+    this.image,
+    this.title,
+    this.details,
+    this.service,
+    this.about,
+  );
 }

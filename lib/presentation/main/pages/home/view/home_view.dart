@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:stores/app/di.dart';
@@ -57,26 +55,23 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _getScreenWidget() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _getBannerCarousel(),
-        _getSection(AppStrings.services),
-        _getService(),
-        _getSection(AppStrings.stores),
-        _getStores(),
-      ],
+    return StreamBuilder<HomeViewObject>(
+      stream: _viewModel.outputHomeObject,
+      builder: (context, snapshot) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _getBannerWidget(snapshot.data?.banners),
+            _getSection(AppStrings.services),
+            _getServiceWidget(snapshot.data?.services),
+            _getSection(AppStrings.stores),
+            _getStoreWidget(snapshot.data?.stores),
+          ],
+        );
+      }
     );
   }
 
-  Widget _getBannerCarousel() {
-    return StreamBuilder<List<BannerAd>>(
-      stream: _viewModel.outBanner,
-      builder: (context, snapshot) {
-        return _getBannerWidget(snapshot.data);
-      },
-    );
-  }
 
   Widget _getBannerWidget(List<BannerAd>? banners) {
     if (banners != null) {
@@ -124,15 +119,6 @@ class _HomePageState extends State<HomePage> {
         title,
         style: Theme.of(context).textTheme.labelSmall,
       ),
-    );
-  }
-
-  Widget _getService() {
-    return StreamBuilder<List<Service>>(
-      stream: _viewModel.outServices,
-      builder: (context, snapshot) {
-        return _getServiceWidget(snapshot.data);
-      },
     );
   }
 
@@ -188,15 +174,6 @@ class _HomePageState extends State<HomePage> {
     } else {
       return Container();
     }
-  }
-
-  Widget _getStores() {
-    return StreamBuilder<List<Store>>(
-      stream: _viewModel.outStore,
-      builder: (context, snapshot) {
-        return _getStoreWidget(snapshot.data);
-      },
-    );
   }
 
   Widget _getStoreWidget(List<Store>? stores) {

@@ -87,14 +87,25 @@ extension HomeResponseMapper on HomeResponse? {
             const Iterable.empty())
         .cast<BannerAd>()
         .toList();
-    List<Store> stores = (this
-                ?.data
-                ?.stores
-                ?.map((storeResponse) => storeResponse.toDomain()) ??
-            const Iterable.empty())
-        .cast<Store>()
-        .toList();
+    List<Store> stores =
+        (this?.data?.stores?.map((storeResponse) => storeResponse.toDomain()) ??
+                const Iterable.empty())
+            .cast<Store>()
+            .toList();
     var data = HomeData(services, banners, stores);
     return HomeObject(data);
+  }
+}
+
+extension StoreDetailsResponseMapper on StoreDetailsDataResponse? {
+  StoreDetails toDomain() {
+    return StoreDetails(
+      this?.id?.orZero() ?? Constants.zero,
+      this?.image?.orEmpty() ?? Constants.empty,
+      this?.title?.orEmpty() ?? Constants.empty,
+      this?.details?.orEmpty() ?? Constants.empty,
+      this?.service?.orEmpty() ?? Constants.empty,
+      this?.about?.orEmpty() ?? Constants.empty,
+    );
   }
 }

@@ -60,4 +60,8 @@ class AppStrings {
 
   // notifications view
   static const String notifications = "Notifcations";
+
+  // store details
+  static const String details = "Store Details";
+  static const String about = "About the Store";
 }

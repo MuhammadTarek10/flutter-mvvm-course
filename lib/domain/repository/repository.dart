@@ -11,4 +11,5 @@ abstract class Reposotiry {
   Future<Either<Failure, Authentication>> register(
       RegisterRequest registerRequest);
   Future<Either<Failure, HomeObject>> getHome();
+  Future<Either<Failure, StoreDetails>> getStoreDetails();
 }
