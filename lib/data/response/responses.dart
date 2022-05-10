@@ -163,7 +163,7 @@ class StoreDetailsDataResponse extends BaseResponse {
   String? details;
   @JsonKey(name: 'about')
   String? about;
-  @JsonKey(name: 'service')
+  @JsonKey(name: 'services')
   String? service;
 
   StoreDetailsDataResponse(

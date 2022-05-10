@@ -169,7 +169,7 @@ StoreDetailsDataResponse _$StoreDetailsDataResponseFromJson(
       json['image'] as String?,
       json['details'] as String?,
       json['about'] as String?,
-      json['service'] as String?,
+      json['services'] as String?,
     )
       ..status = json['status'] as int?
       ..message = json['message'] as String?;
@@ -184,5 +184,5 @@ Map<String, dynamic> _$StoreDetailsDataResponseToJson(
       'image': instance.image,
       'details': instance.details,
       'about': instance.about,
-      'service': instance.service,
+      'services': instance.service,
     };

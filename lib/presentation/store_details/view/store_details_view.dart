@@ -79,7 +79,7 @@ class _StoreDetailsViewState extends State<StoreDetailsView> {
     );
   }
 
-    Widget _getItems(StoreDetails? storeDetails) {
+  Widget _getItems(StoreDetails? storeDetails) {
     if (storeDetails != null) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +103,8 @@ class _StoreDetailsViewState extends State<StoreDetailsView> {
       return Container();
     }
   }
-    Widget _getSection(String title) {
+
+  Widget _getSection(String title) {
     return Padding(
         padding: const EdgeInsets.only(
             top: AppPadding.p12,
@@ -116,7 +117,7 @@ class _StoreDetailsViewState extends State<StoreDetailsView> {
   Widget _getInfoText(String info) {
     return Padding(
       padding: const EdgeInsets.all(AppSize.s12),
-      child: Text(info, style: Theme.of(context).textTheme.bodySmall),
+      child: Text(info, style: Theme.of(context).textTheme.titleSmall),
     );
   }
 }
