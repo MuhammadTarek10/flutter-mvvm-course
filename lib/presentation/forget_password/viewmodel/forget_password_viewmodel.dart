@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:stores/app/functions.dart';
 import 'package:stores/domain/usecase/forget_password_usecase.dart';
 import 'package:stores/presentation/base/base_view_model.dart';
@@ -42,7 +43,7 @@ class ForgetPasswordViewModel extends BaseViewModel
         failure.message,
       )),
       (data) => inputState
-          .add(SuccessState(data.support ?? AppStrings.resetPasswordDefault)),
+          .add(SuccessState(data.support ?? AppStrings.resetPassword.tr())),
     );
   }
 

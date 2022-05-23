@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:stores/app/functions.dart';
 import 'package:stores/domain/usecase/register_usecase.dart';
 import 'package:stores/presentation/base/base_view_model.dart';
@@ -105,28 +106,28 @@ class RegisterViewModel extends BaseViewModel
   Stream<String?> get outErrorCountryMobileCode =>
       outCountryMobileCodeValid.map(
         (isCountryMobileCode) =>
-            isCountryMobileCode ? null : AppStrings.errorCountryMobileCode,
+            isCountryMobileCode ? null : AppStrings.mobileNumberInvalid.tr(),
       );
 
   @override
   Stream<String?> get outErrorEmail => outEmailValid.map(
-        (isEmail) => isEmail ? null : AppStrings.errorEmail,
+        (isEmail) => isEmail ? null : AppStrings.emailError.tr(),
       );
 
   @override
   Stream<String?> get outErrorMobileNumber => outMobileNumberValid.map(
         (isMobileNumber) =>
-            isMobileNumber ? null : AppStrings.errorMobileNumber,
+            isMobileNumber ? null : AppStrings.mobileNumberInvalid.tr(),
       );
 
   @override
   Stream<String?> get outErrorPassword => outPasswordValid.map(
-        (isPassword) => isPassword ? null : AppStrings.errorPassword,
+        (isPassword) => isPassword ? null : AppStrings.passwordInvalid.tr(),
       );
 
   @override
   Stream<String?> get outErrorUsername => outUsernameValid.map(
-        (isUsername) => isUsername ? null : AppStrings.errorUsername,
+        (isUsername) => isUsername ? null : AppStrings.userNameInvalid.tr(),
       );
 
   @override

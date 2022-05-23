@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:stores/app/constants.dart';
 import 'package:stores/presentation/common/state_renderer/state_renderer.dart';
@@ -18,7 +19,7 @@ class LoadingState extends FlowState {
       {required this.stateRendererType, String message = AppStrings.loading});
 
   @override
-  String getMessage() => message ?? AppStrings.loading;
+  String getMessage() => message ?? AppStrings.loading.tr();
 
   @override
   StateRendererType getStateRendererType() => stateRendererType;
@@ -136,7 +137,7 @@ extension FlowStateExtension on FlowState {
 
   showPopup(BuildContext context, StateRendererType stateRendererType,
       String message) {
-    WidgetsBinding.instance?.addPostFrameCallback((_) => showDialog(
+    WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(
         context: context,
         builder: (BuildContext context) => StateRenderer(
             stateRendererType: stateRendererType,

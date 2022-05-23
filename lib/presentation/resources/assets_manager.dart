@@ -15,6 +15,13 @@ class ImageAssetsManager {
   static const String rightArrowIc = "$imageBasePath/right_arrow_ic.svg";
 
   static const String profileCamera = "$imageBasePath/photo_camera_ic.svg";
+
+  static const String changeLanguageIc = "$imageBasePath/change_lang_ic.svg";
+  static const String contactUsIc = "$imageBasePath/contact_us_ic.svg";
+  static const String inviteFriendsIc = "$imageBasePath/invite_friends_ic.svg";
+  static const String logoutIc = "$imageBasePath/logout_ic.svg";
+  static const String rightArrowSettingsIc =
+      "$imageBasePath/settings_right_arrow_ic.svg";
 }
 
 class JsonAssetManager {

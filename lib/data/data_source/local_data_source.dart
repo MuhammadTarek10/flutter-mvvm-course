@@ -22,7 +22,7 @@ abstract class LocalDataSource {
 
 class LocalDataSourceImpl implements LocalDataSource {
   // run time cache
-  Map<String, CachedItem> cacheMap = Map();
+  Map<String, CachedItem> cacheMap = {};
 
   @override
   Future<HomeResponse> getHomeData() async {

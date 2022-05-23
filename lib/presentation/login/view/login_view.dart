@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stores/app/app_prefs.dart';
@@ -36,7 +37,7 @@ class _LoginViewState extends State<LoginView> {
         .listen((isLoggedIn) {
       if (isLoggedIn) {
         _appPrefrences.setUserLoggedIn();
-        SchedulerBinding.instance?.addPostFrameCallback(
+        SchedulerBinding.instance.addPostFrameCallback(
           (_) => Navigator.of(context).pushReplacementNamed(
             Routes.mainRoute,
           ),
@@ -84,11 +85,11 @@ class _LoginViewState extends State<LoginView> {
                       keyboardType: TextInputType.emailAddress,
                       controller: _usernameController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.username,
-                        labelText: AppStrings.username,
+                        hintText: AppStrings.username.tr(),
+                        labelText: AppStrings.username.tr(),
                         errorText: (snapshot.data ?? true)
                             ? null
-                            : AppStrings.usernameError,
+                            : AppStrings.usernameError.tr(),
                       ),
                     );
                   },
@@ -107,11 +108,11 @@ class _LoginViewState extends State<LoginView> {
                       keyboardType: TextInputType.visiblePassword,
                       controller: _passwordController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.password,
-                        labelText: AppStrings.password,
+                        hintText: AppStrings.password.tr(),
+                        labelText: AppStrings.password.tr(),
                         errorText: (snapshot.data ?? true)
                             ? null
-                            : AppStrings.passwordError,
+                            : AppStrings.passwordError.tr(),
                       ),
                     );
                   },
@@ -133,8 +134,8 @@ class _LoginViewState extends State<LoginView> {
                         onPressed: (snapshot.data ?? false)
                             ? () => _viewModel.login()
                             : null,
-                        child: const Text(
-                          AppStrings.login,
+                        child: Text(
+                          AppStrings.login.tr(),
                         ),
                       ),
                     );
@@ -158,7 +159,7 @@ class _LoginViewState extends State<LoginView> {
                         );
                       },
                       child: Text(
-                        AppStrings.forgetPassword,
+                        AppStrings.forgetPassword.tr(),
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ),
@@ -170,7 +171,7 @@ class _LoginViewState extends State<LoginView> {
                         );
                       },
                       child: Text(
-                        AppStrings.registerText,
+                        AppStrings.registerText.tr(),
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ),

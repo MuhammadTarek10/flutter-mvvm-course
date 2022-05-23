@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:stores/data/network/failure.dart';
+import 'package:stores/presentation/resources/strings_manager.dart';
 
 class ErrorHandler implements Exception {
   late Failure failure;
@@ -151,21 +152,20 @@ class ResponseCode {
 }
 
 class ResponseMessage {
-  static const String success = "Success";
-  static const String noContent = "No Content";
-  static const String notFound = "Not Found";
-  static const String badRequest = "Bad Request, try again later";
-  static const String forbidden = "Forbidden Request";
-  static const String unAuthorized = "User is Un Authorized";
-  static const String internalServerError = "Somthing went wrong";
-
-  static const String connectTimeout = "Timeout Error";
-  static const String cancel = "Request was canceld";
-  static const String recieveTimeout = "Receive Timeout";
-  static const String sendTimeout = "Send Timeout";
-  static const String cacheError = "Cached Error";
-  static const String noIntentConnection = "No Intent Connection";
-  static const String unknown = "Unknown Error";
+  static const String success = AppStrings.success;
+  static const String noContent = AppStrings.noContent;
+  static const String notFound = AppStrings.notFoundError;
+  static const String badRequest = AppStrings.badRequestError;
+  static const String forbidden = AppStrings.forbiddenError;
+  static const String unAuthorized = AppStrings.unauthorizedError;
+  static const String internalServerError = AppStrings.internalServerError;
+  static const String connectTimeout = AppStrings.timeoutError;
+  static const String cancel = AppStrings.conflictError;
+  static const String recieveTimeout = AppStrings.timeoutError;
+  static const String sendTimeout = AppStrings.timeoutError;
+  static const String cacheError = AppStrings.cacheError;
+  static const String noIntentConnection = AppStrings.noInternetError;
+  static const String unknown = AppStrings.unknownError;
 }
 
 class ApiInternalStatus {

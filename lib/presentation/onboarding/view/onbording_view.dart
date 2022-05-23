@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:stores/app/app_prefs.dart';
 import 'package:stores/app/di.dart';
 import 'package:stores/domain/models/models.dart';
@@ -76,7 +77,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         );
                       },
                       child: Text(
-                        AppStrings.skip,
+                        AppStrings.skip.tr(),
                         style: Theme.of(context).textTheme.titleMedium,
                         textAlign: TextAlign.end,
                       ),
